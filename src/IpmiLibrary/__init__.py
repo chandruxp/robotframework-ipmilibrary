@@ -148,7 +148,7 @@ class IpmiLibrary(Sdr, Sel, Fru, Bmc, Picmg, Hpm, Chassis, Lan):
         password = str(password)
         port = int_any_base(port)
 
-        interface = pyipmi.interfaces.create_interface(interface_type)
+        interface = pyipmi.interfaces.create_interface(interface_type, 'lanplus')
         ipmi = pyipmi.create_connection(interface)
         ipmi.session.set_session_type_rmcp(host, port)
         ipmi.session.set_auth_type_user(user, password)
